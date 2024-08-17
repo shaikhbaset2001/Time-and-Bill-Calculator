@@ -4,13 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Time Tracker</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <header>
         <div class="head-navbar">
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
             <h1>Time Tracker</h1>
         </div>
+        <nav class="menu" id="menu">
+            <a href="#sign-up">Sign-Up/Sign-In</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
         <div class="navbar">
             <div class="name">
                 <h3>Name</h3>
@@ -18,7 +28,7 @@
             </div>
             <div class="timeframe">
                 <h3>Time Frame</h3>
-                <p>UTC/GMT -4 <span>New York, USA.</p>
+                <p>UTC/GMT -4 <span>New York, USA.</span></p>
                 <p>Week of 04 Aug 24 - 10 Aug 24</p>
             </div>
             <div class="submit-on">
@@ -45,7 +55,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Project-A</td>
+                        <th scope="row">Project-A</th>
                         <td><input type="number" class="hours" oninput="calculation()"></td>
                         <td><input type="number" class="minutes" oninput="calculation()"></td>
                         <td><input type="number" class="hours" oninput="calculation()"></td>
@@ -62,7 +72,7 @@
                         <td><input type="number" class="minutes" oninput="calculation()"></td>
                     </tr>
                     <tr>
-                        <td>Project-B</td>
+                        <th scope="row">Project-B</th>
                         <td><input type="number" class="hours" oninput="calculation()"></td>
                         <td><input type="number" class="minutes" oninput="calculation()"></td>
                         <td><input type="number" class="hours" oninput="calculation()"></td>
@@ -79,7 +89,7 @@
                         <td><input type="number" class="minutes" oninput="calculation()"></td>
                     </tr>
                     <tr>
-                        <td>Project-C</td>
+                        <th scope="row">Project-C</th>
                         <td><input type="number" class="hours" oninput="calculation()"></td>
                         <td><input type="number" class="minutes" oninput="calculation()"></td>
                         <td><input type="number" class="hours" oninput="calculation()"></td>
@@ -98,7 +108,7 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td>Total</td>
+                        <th>Total</th>
                         <td class="total" id="totalhours" colspan="7"></td>
                         <td class="total" id="totalminutes" colspan="7"></td>
                     </tr>
@@ -106,6 +116,6 @@
             </table>
         </div>
     </section>
-    <script src="script.js"></script>
+    <script src="script/script.js"></script>
 </body>
 </html>
