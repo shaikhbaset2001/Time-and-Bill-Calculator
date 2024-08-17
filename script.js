@@ -1,3 +1,11 @@
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    const hamburger = document.querySelector(".hamburger");
+
+    menu.classList.toggle("show");
+    hamburger.classList.toggle("open");
+}
+
 function calculation() {
     let totalHours = 0;
     let totalMinutes = 0;
