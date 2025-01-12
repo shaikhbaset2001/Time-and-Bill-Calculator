@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Time Tracker</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <header>
@@ -17,23 +17,29 @@
             <h1>Time Tracker</h1>
         </div>
         <nav class="menu" id="menu">
-            <a href="#sign-up">Sign-Up/Sign-In</a>
+            <a href="login.html">Sign-Up/Sign-In</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
         </nav>
         <div class="navbar">
             <div class="name">
                 <h3>Name</h3>
-                <p>Abdul Baset</p>
+                <p><b>Abdul Baset</b> (Choice)</p>
             </div>
             <div class="timeframe">
                 <h3>Time Frame</h3>
-                <p>UTC/GMT -4 <span>New York, USA.</span></p>
-                <p>Week of 04 Aug 24 - 10 Aug 24</p>
+                <p style="font-size: 14px;">UTC/GMT -4 <span style="font-size: 10px;">New York, USA.</span></p>
+                <p><strong>Week of</strong></p>
+                <p><b><span><input type="date" name="Date for Sunday" id="firstDay" placeholder="click here to set date"></span></b> to <b><span class="lastDay"><!--here show date of saturday--></span></b></p>
             </div>
             <div class="submit-on">
                 <h3>Submit on</h3>
-                <p>10 Aug 2024</p>
+                <p><b><span class="lastDay"></span></b></p>
+            </div>
+            <div class="billing">
+                <h3>Billing</h3>
+                <p style="font-size: 12px;">Billing rate (Hourly) : <b>৳ 100</b></p>
+                <p style="font-size: 16px;">Total = <b><span id="totalBill"></b></span></p>
             </div>
         </div>
     </header>
@@ -43,7 +49,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th></th>
+                        <th rowspan="2"></th>
                         <th colspan="2">Sun</th>
                         <th colspan="2">Mon</th>
                         <th colspan="2">Tue</th>
@@ -51,6 +57,15 @@
                         <th colspan="2">Thu</th>
                         <th colspan="2">Fri</th>
                         <th colspan="2">Sat</th>
+                    </tr>
+                    <tr>
+                        <th colspan="2"><span id="dateSun"></span></th>
+                        <th colspan="2"><span id="datemon"></span></th>
+                        <th colspan="2"><span id="datetue"></span></th>
+                        <th colspan="2"><span id="datewed"></span></th>
+                        <th colspan="2"><span id="datethus"></span></th>
+                        <th colspan="2"><span id="datefri"></span></th>
+                        <th colspan="2"><span id="datesat"></span></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,7 +78,7 @@
                         <td><input type="number" class="hours" oninput="calculation()"></td>
                         <td><input type="number" class="minutes" oninput="calculation()"></td>
                         <td><input type="number" class="hours" oninput="calculation()"></td>
-                        <td><input type="number" class="minutes" oninput="calculation()"></td>
+                        <td><input type="number" class="minutes" oninpuon="calculation()"></td>
                         <td><input type="number" class="hours" oninput="calculation()"></td>
                         <td><input type="number" class="minutes" oninput="calculation()"></td>
                         <td><input type="number" class="hours" oninput="calculation()"></td>
@@ -116,6 +131,23 @@
             </table>
         </div>
     </section>
-    <script src="script.js"></script>
+    <section>
+        <div class="table">
+            <!-- Your existing table code -->
+        </div>
+        <div class="save-button-container">
+            <button class="save-button">Save</button>
+        </div>
+    </section>
+    
+    <section>
+        <div class="history-container">
+            <h2>History</h2>
+            <div id="history"></div>
+        </div>
+    </section>
+
+<script src="script/script.js"></script>
+    
 </body>
 </html>
