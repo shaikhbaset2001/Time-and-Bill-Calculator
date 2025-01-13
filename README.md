@@ -1,1 +1,1 @@
-# time-tracker
+Time and Bill Calculator
