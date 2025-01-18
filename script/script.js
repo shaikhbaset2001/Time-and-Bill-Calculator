@@ -1,3 +1,22 @@
+        let datas = [];
+
+        const getStoreData = JSON.parse(localStorage.getItem("totalData"));
+        if(getStoreData){
+            getStoreData.forEach(data => {
+                const historyDiv = document.getElementById("history");
+                const entry = document.createElement("div");
+                entry.className = "history-entry";
+                entry.innerHTML = `
+                    <p><strong>Date:</strong><span><b> ${data.dateSun}</b></span> - <span><b> ${data.dateSat}</b></span></p>
+                    <p><strong>Total Time:</strong><span> ${data.totalHours}</span> <span> ${data.totalMinutes}</span></p>
+                    <p><strong>Total Bill:</strong> <span>${data.totalBill}</span></p>
+                    <hr>
+                `;
+                historyDiv.prepend(entry);
+            });
+        }
+
+
         // Format a date as "01 January 2024"
         function formatDate(date) {
             const options = { day: '2-digit', month: 'long', year: 'numeric' };
@@ -99,6 +118,7 @@
             }
             return null;
         }
+
     
         // Function to delete a cookie
         function eraseCookie(name) {
@@ -111,12 +131,12 @@
             const totalMinutes = document.getElementById("totalminutes").textContent;
             const totalBill = document.getElementById("totalBill").textContent;
     
-            setCookie("totalHours", totalHours, 1); // Save for 1 day
-            setCookie("totalMinutes", totalMinutes, 1);
-            setCookie("totalBill", totalBill, 1);
-    
+
             saveData();
             clearTable(); // Clear table after saving
+
+            localStorage.setItem("totalData", JSON.stringify(datas));
+
         });
     
         // Function to clear table data
@@ -129,6 +149,7 @@
         }
     
         // Function to save data and add it to history
+        
         function saveData() {
             const dateSun = document.getElementById("dateSun").textContent;
             const dateSat = document.getElementById("datesat").textContent;
@@ -140,6 +161,7 @@
                 alert("Please fill in all required fields.");
                 return;
             }
+
     
             const historyDiv = document.getElementById("history");
             const entry = document.createElement("div");
@@ -151,6 +173,8 @@
                 <hr>
             `;
             historyDiv.prepend(entry);
+
+            datas.push({dateSun, dateSat, totalHours, totalMinutes, totalBill});
             
             // Save history to cookies
             setCookie("history", historyDiv.innerHTML, 1);
