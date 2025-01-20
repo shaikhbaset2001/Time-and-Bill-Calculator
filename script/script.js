@@ -50,6 +50,7 @@ function calculation() {
 
     const hoursInputs = document.querySelectorAll('.hours');
     const minutesInputs = document.querySelectorAll('.minutes');
+    const billInputs = document.getElementById('bill');
 
     hoursInputs.forEach(input => {
         totalHours += parseInt(input.value) || 0;
@@ -71,7 +72,7 @@ function calculation() {
 
 // Function to calculate and display the total bill
 function totalBill() {
-    const hourlyRate = 100;
+    const hourlyRate = parseFloat(document.getElementById("bill").value) || 0;
     let totalHours = 0;
     let totalMinutes = 0;
 
